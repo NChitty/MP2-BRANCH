@@ -7,6 +7,7 @@
 
 bool BimodalPredictor::make_prediction(uint32_t block) {
     stats->access++;
+    // ignore the trailing zeros in PC and get the set bits by masking
     int index = (block >> 2) & pc_mask;
     return prediction_table.at(index) >= 4;
 }
@@ -16,8 +17,13 @@ void BimodalPredictor::update(uint32_t block, bool guess, bool actual) {
         stats->mispredict++;
     }
 
+    // get the index from the vector
     int index = (block >> 2) & pc_mask;
 
+    /*
+     * if actual was taken, increment unless saturated
+     * otherwise decrement unless saturated
+     */
     if(actual) {
         if(prediction_table.at(index) < 7) {
             prediction_table.at(index) = prediction_table.at(index) + 1;
@@ -51,9 +57,6 @@ BimodalPredictor::BimodalPredictor(int n, string trace_file) {
 
     // assign all the prediction table values to 4
     prediction_table.assign(pow(2, n), 4);
-    pc_mask = 0;
-    for(int i = 0; i < n; i++) {
-        pc_mask <<= 1;
-        pc_mask |= 1;
-    }
+    // results in the bottom n bits being 1s to get that part of the PC
+    pc_mask = pow(2, n)-1;
 }

@@ -12,9 +12,10 @@ SmithPredictor::SmithPredictor(int n, string trace_file) {
 
     stats = (Stats*) calloc(1, sizeof(Stats));
 
+    // this is half the maximum number of bits
     criteria = pow(2, n-1);
-    max = pow(2, n);
-    counter = criteria;
+    max = pow(2, n); // this is maximum value of the counter
+    counter = criteria; // initialize the counter to "weak taken"
 }
 
 void SmithPredictor::update(uint32_t block, bool guess, bool actual) {
@@ -22,6 +23,10 @@ void SmithPredictor::update(uint32_t block, bool guess, bool actual) {
         stats->mispredict++;
     }
 
+    /*
+     * if actual was "taken", increment unless saturated
+     * else decrement unless saturated
+     */
     if(actual) {
         if(counter < max-1) {
             counter++;
