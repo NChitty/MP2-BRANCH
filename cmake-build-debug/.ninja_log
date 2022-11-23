@@ -1,24 +1,6 @@
 # ninja log v5
-2	315	6908658651844194	CMakeFiles/MP2_BRANCH.dir/src/main.cpp.obj	d2617c9f52924739
-2	339	6908660900982694	CMakeFiles/MP2_BRANCH.dir/src/predictors/BimodalPredictor.cpp.obj	afbc317d0043be44
-4	301	6908647285567987	CMakeFiles/MP2_BRANCH.dir/src/predictors/SmithPredictor.cpp.obj	9f4f468272cc8acb
-339	418	6908660901742696	MP2_BRANCH.exe	cc72a688ae9869db
-5	333	6908688198141477	CMakeFiles/MP2_BRANCH.dir/src/predictors/SmithPredictor.cpp.obj	9f4f468272cc8acb
 2	348	6908688198301504	CMakeFiles/MP2_BRANCH.dir/src/main.cpp.obj	d2617c9f52924739
 7	382	6908688198631465	CMakeFiles/MP2_BRANCH.dir/src/predictors/BimodalPredictor.cpp.obj	afbc317d0043be44
-10	387	6908688198691478	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-401	544	6908688200222461	MP2_BRANCH.exe	d6506e7793f2a941
-2	353	6908689315187996	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-353	440	6908689316027995	MP2_BRANCH.exe	d6506e7793f2a941
-2	350	6908690824333437	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-351	437	6908690825173418	MP2_BRANCH.exe	d6506e7793f2a941
-2	354	6908692009808929	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-355	441	6908692010628944	MP2_BRANCH.exe	d6506e7793f2a941
-2	351	6908695266407511	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-351	443	6908695267298450	MP2_BRANCH.exe	d6506e7793f2a941
-3	359	6908695815916086	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-359	445	6908695816756088	MP2_BRANCH.exe	d6506e7793f2a941
-2	837	6908697459823817	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
-837	1000	6908697461433986	MP2_BRANCH.exe	d6506e7793f2a941
-2	358	6908700251396434	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
+5	333	6908688198141477	CMakeFiles/MP2_BRANCH.dir/src/predictors/SmithPredictor.cpp.obj	9f4f468272cc8acb
 358	443	6908700252216502	MP2_BRANCH.exe	d6506e7793f2a941
+2	358	6908700251396434	CMakeFiles/MP2_BRANCH.dir/src/predictors/GsharePredictor.cpp.obj	8137bb1863ee240a
