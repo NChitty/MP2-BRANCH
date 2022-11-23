@@ -3,6 +3,7 @@
 #include "predictors/Predictor.h"
 #include "predictors/SmithPredictor.h"
 #include "predictors/BimodalPredictor.h"
+#include "predictors/GsharePredictor.h"
 
 uint32_t from_string(string basicString);
 
@@ -17,6 +18,9 @@ int main(int argc, char **argv) {
     } else if (predictor_type == "bimodal") {
         trace_file = argv[3];
         predictor = new BimodalPredictor(atoi(argv[2]), argv[3]);
+    } else if (predictor_type == "gshare") {
+        trace_file = argv[4];
+        predictor = new GsharePredictor(atoi(argv[2]), atoi(argv[3]), trace_file);
     }
 
     ifstream file(trace_file);
