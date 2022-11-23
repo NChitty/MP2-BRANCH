@@ -12,8 +12,8 @@
 class SmithPredictor: public Predictor {
 public:
     explicit SmithPredictor(int n, string trace_file);
-    void update(std::string block, bool guess, bool actual) override;
-    bool make_prediction(string block) override;
+    void update(uint32_t block, bool guess, bool actual) override;
+    bool make_prediction(uint32_t block) override;
     void print() override;
 
 protected:

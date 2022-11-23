@@ -18,8 +18,8 @@ public:
      * @param block The address of the block
      * @return True for a branch taken or false for predict branch not taken
      */
-    virtual bool make_prediction(string block) = 0;
-    virtual void update(string block, bool guess, bool actual) = 0;
+    virtual bool make_prediction(uint32_t block) = 0;
+    virtual void update(uint32_t block, bool guess, bool actual) = 0;
     virtual void print() = 0;
 
 protected:

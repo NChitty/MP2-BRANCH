@@ -17,7 +17,7 @@ SmithPredictor::SmithPredictor(int n, string trace_file) {
     counter = criteria;
 }
 
-void SmithPredictor::update(std::string block, bool guess, bool actual) {
+void SmithPredictor::update(uint32_t block, bool guess, bool actual) {
     if(guess != actual) {
         stats->mispredict++;
     }
@@ -33,7 +33,7 @@ void SmithPredictor::update(std::string block, bool guess, bool actual) {
     }
 }
 
-bool SmithPredictor::make_prediction(string block) {
+bool SmithPredictor::make_prediction(uint32_t block) {
     stats->access++;
     return counter >= criteria;
 }
