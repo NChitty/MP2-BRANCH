@@ -45,7 +45,7 @@ void GsharePredictor::print() {
     printf("OUTPUT\n");
     printf("number of predictions:%12d\n", stats->access);
     printf("number of mispredictions:%9d\n", stats->mispredict);
-    printf("misprediction rate:%14.2f%\n", ((double) stats->mispredict / stats->access) * 100);
+    printf("misprediction rate:%14.2f%%\n", ((double) stats->mispredict / stats->access) * 100);
     printf("FINAL GSHARE CONTENTS\n");
     for(int i = 0; i < prediction_table.size(); i++) {
         printf("%7d%2d\n", i, prediction_table.at(i));
@@ -58,6 +58,8 @@ GsharePredictor::GsharePredictor(int pc_bits, int gbh_bits, string trace_file) {
     command += " " + to_string(gbh_bits) + trace_file;
 
     stats = (Stats*) calloc(1, sizeof(Stats));
+    stats->access = 0;
+    stats->mispredict = 0;
 
     // assign all the prediction table values to 4
     prediction_table.assign(pow(2, pc_bits), 4);
@@ -65,4 +67,22 @@ GsharePredictor::GsharePredictor(int pc_bits, int gbh_bits, string trace_file) {
     // this is to keep the correct values in the gbh
     gbh_mask = ((int) pow(2, gbh_bits)-1);
     pc_mask = pow(2, pc_bits) - 1;
+}
+
+void GsharePredictor::update_gbh(bool b) {
+    if (b) {
+        gbh |= (gbh_mask+1);
+        gbh >>= 1;
+        gbh &= gbh_mask;
+    } else {
+        gbh >>= 1;
+        gbh &= gbh_mask;
+    }
+}
+
+void GsharePredictor::print_contents() {
+    printf("FINAL GSHARE CONTENTS\n");
+    for(int i = 0; i < prediction_table.size(); i++) {
+        printf("%7d%2d\n", i, prediction_table.at(i));
+    }
 }

@@ -41,7 +41,7 @@ void BimodalPredictor::print() {
     printf("OUTPUT\n");
     printf("number of predictions:%12d\n", stats->access);
     printf("number of mispredictions:%9d\n", stats->mispredict);
-    printf("misprediction rate:%14.2f%\n", ((double) stats->mispredict / stats->access) * 100);
+    printf("misprediction rate:%14.2f%%\n", ((double) stats->mispredict / stats->access) * 100);
     printf("FINAL BIMODAL CONTENTS\n");
     for(int i = 0; i < prediction_table.size(); i++) {
         printf("%2d%2d\n", i, prediction_table.at(i));
@@ -54,9 +54,18 @@ BimodalPredictor::BimodalPredictor(int n, string trace_file) {
     command += " " + trace_file;
 
     stats = (Stats*) calloc(1, sizeof(Stats));
+    stats->access = 0;
+    stats->mispredict = 0;
 
     // assign all the prediction table values to 4
     prediction_table.assign(pow(2, n), 4);
     // results in the bottom n bits being 1s to get that part of the PC
     pc_mask = pow(2, n)-1;
+}
+
+void BimodalPredictor::print_contents() {
+    printf("FINAL BIMODAL CONTENTS\n");
+    for(int i = 0; i < prediction_table.size(); i++) {
+        printf("%2d%2d\n", i, prediction_table.at(i));
+    }
 }

@@ -18,6 +18,11 @@ public:
     void update(uint32_t block, bool guess, bool actual) override;
 
     void print() override;
+
+    void update_gbh(bool b);
+
+    void print_contents();
+
 protected:
     vector<int> prediction_table;
     uint32_t gbh;

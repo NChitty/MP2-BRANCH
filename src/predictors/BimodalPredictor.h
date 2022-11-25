@@ -18,6 +18,9 @@ public:
     void update(uint32_t block, bool guess, bool actual) override;
 
     void print() override;
+
+    void print_contents();
+
 protected:
     vector<uint32_t> prediction_table;
     uint32_t pc_mask;
