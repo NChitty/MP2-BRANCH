@@ -10,21 +10,24 @@ uint32_t from_string(string basicString);
 
 int main(int argc, char **argv) {
     Predictor* predictor = nullptr;
-
+    string command = "";
+    for(int i = 0; i < argc;  i++) {
+        command = command + argv[i] + " ";
+    }
     string predictor_type = argv[1];
     string trace_file;
     if(predictor_type == "smith") {
         trace_file = argv[3];
-        predictor = new SmithPredictor(atoi(argv[2]), argv[3]);
+        predictor = new SmithPredictor(command, atoi(argv[2]));
     } else if (predictor_type == "bimodal") {
         trace_file = argv[3];
-        predictor = new BimodalPredictor(atoi(argv[2]), argv[3]);
+        predictor = new BimodalPredictor(command, atoi(argv[2]));
     } else if (predictor_type == "gshare") {
         trace_file = argv[4];
-        predictor = new GsharePredictor(atoi(argv[2]), atoi(argv[3]), trace_file);
+        predictor = new GsharePredictor(command, atoi(argv[2]), atoi(argv[3]));
     } else if (predictor_type == "hybrid") {
         trace_file = argv[6];
-        predictor = new HybridPredictor(atoi(argv[2]), atoi(argv[3]), atoi(argv[4]), atoi(argv[5]), trace_file);
+        predictor = new HybridPredictor(command, atoi(argv[2]), atoi(argv[3]), atoi(argv[4]), atoi(argv[5]));
     }
 
     ifstream file(trace_file);

@@ -12,7 +12,7 @@
 
 class HybridPredictor: public Predictor {
 public:
-    HybridPredictor(int pc_bits_chooser, int pc_bits_gbh, int gbh_bits, int pc_bits_bimodal, string trace_file);
+    HybridPredictor(string cmd, int pc_bits_chooser, int pc_bits_gbh, int gbh_bits, int pc_bits_bimodal);
 
     bool make_prediction(uint32_t block) override;
 

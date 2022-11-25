@@ -5,10 +5,8 @@
 #include <math.h>
 #include "SmithPredictor.h"
 
-SmithPredictor::SmithPredictor(int n, string trace_file) {
-    command += " smith ";
-    command += to_string(n);
-    command += " " + trace_file;
+SmithPredictor::SmithPredictor(string cmd, int n) {
+    command = cmd;
 
     stats = (Stats*) calloc(1, sizeof(Stats));
     stats->access = 0;

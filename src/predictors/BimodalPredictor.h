@@ -11,7 +11,7 @@
 
 class BimodalPredictor: public Predictor {
 public:
-    BimodalPredictor(int n, string trace_file);
+    BimodalPredictor(string cmd, int n);
 
     bool make_prediction(uint32_t block) override;
 

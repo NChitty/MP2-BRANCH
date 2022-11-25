@@ -70,14 +70,11 @@ void HybridPredictor::print() {
     bimodal->print_contents();
 }
 
-HybridPredictor::HybridPredictor(int pc_bits_chooser, int pc_bits_gbh, int gbh_bits, int pc_bits_bimodal,
-                                 string trace_file) {
-    command += " hybrid ";
-    command += to_string(pc_bits_chooser) + " ";
-    command += to_string(pc_bits_gbh);
-    command += " " + to_string(gbh_bits) + " " + to_string(pc_bits_bimodal) + " " + trace_file;
-    gshare = new GsharePredictor(pc_bits_gbh, gbh_bits, trace_file);
-    bimodal = new BimodalPredictor(pc_bits_bimodal, trace_file);
+HybridPredictor::HybridPredictor(string cmd, int pc_bits_chooser, int pc_bits_gbh, int gbh_bits,
+                                 int pc_bits_bimodal) {
+    command = cmd;
+    gshare = new GsharePredictor(command, pc_bits_gbh, gbh_bits);
+    bimodal = new BimodalPredictor(command, pc_bits_bimodal);
 
     stats = (Stats*) calloc(1, sizeof(Stats));
     stats->access = 0;

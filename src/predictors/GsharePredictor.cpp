@@ -52,10 +52,8 @@ void GsharePredictor::print() {
     }
 }
 
-GsharePredictor::GsharePredictor(int pc_bits, int gbh_bits, string trace_file) {
-    command += " gshare ";
-    command += to_string(pc_bits);
-    command += " " + to_string(gbh_bits) + trace_file;
+GsharePredictor::GsharePredictor(string cmd, int pc_bits, int gbh_bits) {
+    command = cmd;
 
     stats = (Stats*) calloc(1, sizeof(Stats));
     stats->access = 0;

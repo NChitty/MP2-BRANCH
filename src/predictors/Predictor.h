@@ -24,7 +24,7 @@ public:
 
 protected:
     Stats* stats;
-    string command = "./sim";
+    string command;
 };
 
 

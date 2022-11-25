@@ -11,7 +11,7 @@
 
 class GsharePredictor: public Predictor {
 public:
-    GsharePredictor(int pc_bits, int gbh_bits, string trace_file);
+    GsharePredictor(string cmd, int pc_bits, int gbh_bits);
 
     bool make_prediction(uint32_t block) override;
 

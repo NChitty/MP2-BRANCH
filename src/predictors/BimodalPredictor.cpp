@@ -48,10 +48,8 @@ void BimodalPredictor::print() {
     }
 }
 
-BimodalPredictor::BimodalPredictor(int n, string trace_file) {
-    command += " bimodal ";
-    command += to_string(n);
-    command += " " + trace_file;
+BimodalPredictor::BimodalPredictor(string cmd, int n) {
+    command = cmd;
 
     stats = (Stats*) calloc(1, sizeof(Stats));
     stats->access = 0;
