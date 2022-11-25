@@ -11,7 +11,8 @@ SmithPredictor::SmithPredictor(int n, string trace_file) {
     command += " " + trace_file;
 
     stats = (Stats*) calloc(1, sizeof(Stats));
-
+    stats->access = 0;
+    stats->mispredict = 0;
     // this is half the maximum number of bits
     criteria = pow(2, n-1);
     max = pow(2, n); // this is maximum value of the counter
@@ -49,6 +50,6 @@ void SmithPredictor::print() {
     printf("OUTPUT\n");
     printf("number of predictions:%12d\n", stats->access);
     printf("number of mispredictions:%9d\n", stats->mispredict);
-    printf("misprediction rate:%14.2f%\n", ((double) stats->mispredict / stats->access) * 100);
+    printf("misprediction rate:%14.2f%%\n", ((double) stats->mispredict / stats->access) * 100);
     printf("FINAL COUNTER CONTENT:%12d\n", counter);
 }

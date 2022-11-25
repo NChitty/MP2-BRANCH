@@ -5,7 +5,7 @@
 #ifndef MP2_BRANCH_STATS_H
 #define MP2_BRANCH_STATS_H
 typedef struct Stats{
-  int access = 0;
-  int mispredict = 0;
+  int access;
+  int mispredict;
 }Stats;
 #endif //MP2_BRANCH_STATS_H
