@@ -4,6 +4,7 @@
 #include "predictors/SmithPredictor.h"
 #include "predictors/BimodalPredictor.h"
 #include "predictors/GsharePredictor.h"
+#include "predictors/HybridPredictor.h"
 
 uint32_t from_string(string basicString);
 
@@ -21,6 +22,9 @@ int main(int argc, char **argv) {
     } else if (predictor_type == "gshare") {
         trace_file = argv[4];
         predictor = new GsharePredictor(atoi(argv[2]), atoi(argv[3]), trace_file);
+    } else if (predictor_type == "hybrid") {
+        trace_file = argv[6];
+        predictor = new HybridPredictor(atoi(argv[2]), atoi(argv[3]), atoi(argv[4]), atoi(argv[5]), trace_file);
     }
 
     ifstream file(trace_file);
