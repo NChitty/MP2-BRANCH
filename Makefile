@@ -5,10 +5,10 @@ WARN = -Wall
 CFLAGS = $(OPT) $(WARN) $(INC) $(LIB)
 
 # List all .cpp files here
-SIM_SRC = src/main.cpp src/predictors/BimodalPredictor.cpp src/predictors/GsharePredictor.cpp src/predictors/SmithPredictor.cpp
+SIM_SRC = src/main.cpp src/predictors/BimodalPredictor.cpp src/predictors/GsharePredictor.cpp src/predictors/SmithPredictor.cpp src/predictors/HybridPredictor.cpp
 
 # now generate the object file names
-SIM_OBJ  = src/main.o src/predictors/BimodalPredictor.o src/predictors/GsharePredictor.o src/predictors/SmithPredictor.o
+SIM_OBJ  = src/main.o src/predictors/BimodalPredictor.o src/predictors/GsharePredictor.o src/predictors/SmithPredictor.o src/predictors/HybridPredictor.o
 
 all: sim
 	@echo "my work is done here..."
@@ -30,10 +30,10 @@ sim: $(SIM_OBJ)
 # type "make clean" to remove all .o files plus the sim_cache binary
 
 clean:
-	rm -f *.o sim
+	rm -f src/*.o src/predictors/*.o sim
 
 
 # type "make clobber" to remove all .o files (leaves sim_cache binary)
 
 clobber:
-	rm -f *.o
+	rm -f src/*.o src/predictors/*.o
